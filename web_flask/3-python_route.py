@@ -32,7 +32,7 @@ def c_(text):
     return f'C {text.replace("_", " ")}'
 
 
-@app.route('/python', defaults={'text': 'is cool'})
+@app.route('/python/', defaults={'text': 'is cool'})
 @app.route('/python/<text>', strict_slashes=False)
 def python_route(text):
     return f'Python {text.replace("_", " ")}'
