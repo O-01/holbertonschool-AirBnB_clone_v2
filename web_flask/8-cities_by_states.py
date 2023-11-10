@@ -22,11 +22,11 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
-@app.route('/states_list', strict_slashes=False)
-def states_list_route():
+@app.route('/cities_by_states', strict_slashes=False)
+def cities_by_states_route():
     return render_template(
-        '7-states_list.html',
-        states_list=storage.all('State').values()
+        '8-cities_by_states.html',
+        states_list=storage.all('State').values(),
     )
 
 
