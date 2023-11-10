@@ -34,6 +34,7 @@ app = Flask(__name__)
 
 @app.route('/hbnb_filters', strict_slashes=False)
 def hbnb_filters_route():
+    """operations performed at /hbnb_filters route"""
     return render_template(
         '10-hbnb_filters.html',
         states_list=storage.all('State').values(),
@@ -43,6 +44,7 @@ def hbnb_filters_route():
 
 @app.teardown_appcontext
 def remover(exc):
+    """removes current SQLAlchemy session"""
     storage.close()
 
 
