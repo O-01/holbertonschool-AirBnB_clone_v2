@@ -34,7 +34,11 @@ app = Flask(__name__)
 
 @app.route('/hbnb_filters', strict_slashes=False)
 def hbnb_filters_route():
-    return render_template('10-hbnb_filters.html')
+    return render_template(
+        '10-hbnb_filters.html',
+        states_list=storage.all('State').values(),
+        amenities_list=storage.all('Amenity').values()
+    )
 
 
 @app.teardown_appcontext
