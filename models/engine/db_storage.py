@@ -82,5 +82,5 @@ class DBStorage:
         )
 
     def close(self):
-        """close provision"""
-        self.__session.close()
+        """close provision, closes DBStorage instance"""
+        self.__session.remove()
