@@ -11,9 +11,11 @@ Write a script that starts a Flask web application:
 (replace underscore _ symbols with a space ' ')
 ---The default value of text is “is cool”
 --/number/<n>: display “n is a number” only if n is an integer
+--/number_template/<n>: display a HTML page only if n is an integer:
+---H1 tag: “Number: n” inside the tag BODY
 -You must use the option strict_slashes=False in your route definition
 """
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -42,6 +44,11 @@ def python_route(text=None):
 @app.route('/number/<int:n>', strict_slashes=False)
 def number_route(n=None):
     return f'{n} is a number'
+
+
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def number_template(n=None):
+    return render_template('5-number.html', n=n)
 
 
 if __name__ == '__main__':
